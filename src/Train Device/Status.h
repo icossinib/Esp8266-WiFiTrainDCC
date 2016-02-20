@@ -7,8 +7,7 @@ class Status {
     int ledStatus;
     int ledPeriod;
   public:
-    Status();
-    Status(int status);
+    Status(int led, int status);
     void setStatus(int newStatus);
     int getStatus();
     void showStatus();

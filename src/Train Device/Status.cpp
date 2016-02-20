@@ -1,9 +1,11 @@
 #include "Status.h"
 #include "Arduino.h"
 
-Status::Status() {
-  currentStatus = 1;
-  ledPeriod = 300;
+Status::Status(int led, int status){
+  ledStatus = led;
+  ledPeriod = 100;
+  currentStatus = status;
+  pinMode(ledStatus,OUTPUT);
 }
 
 void Status::showStatus() {
