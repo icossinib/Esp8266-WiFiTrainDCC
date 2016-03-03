@@ -205,87 +205,6 @@ ifneq ($(wildcard $(ARDUINO_SAMD_1)/hardware/samd),)
     ARDUINO_SAMD_BOARDS  = $(ARDUINO_SAMD_APP)/hardware/samd/$(ARDUINO_SAMD_RELEASE)/boards.txt
 endif
 
-# Adafruit.app path for ArduinoCC 1.6.5
-#
-ADAFRUIT_AVR_1  = $(PACKAGES_PATH)/adafruit
-
-ifneq ($(wildcard $(ADAFRUIT_AVR_1)/hardware/avr),)
-    ADAFRUIT_AVR_APP     = $(ADAFRUIT_AVR_1)
-    ADAFRUIT_AVR_PATH    = $(ADAFRUIT_AVR_APP)
-    ADAFRUIT_AVR_BOARDS  = $(ADAFRUIT_AVR_APP)/hardware/avr/$(ADAFRUIT_AVR_RELEASE)/boards.txt
-endif
-
-# chipKIT.app path for ArduinoCC 1.6.5
-#
-CHIPKIT_1     = $(PACKAGES_PATH)/chipKIT
-ifneq ($(wildcard $(CHIPKIT_1)),)
-    CHIPKIT_APP     = $(CHIPKIT_1)
-    CHIPKIT_PATH    = $(CHIPKIT_APP)
-    CHIPKIT_BOARDS  = $(CHIPKIT_APP)/hardware/pic32/$(CHIPKIT_RELEASE)/boards.txt
-endif
-
-# UDOO_NEO path for ArduinoCC 1.6.5
-#
-UDOO_NEO_1    = $(PACKAGES_PATH)/UDOO
-
-ifneq ($(wildcard $(UDOO_NEO_1)),)
-    UDOO_NEO_APP     = $(UDOO_NEO_1)
-    UDOO_NEO_PATH    = $(UDOO_NEO_APP)
-    UDOO_NEO_BOARDS  = $(UDOO_NEO_APP)/hardware/solox/$(UDOO_NEO_RELEASE)/boards.txt
-endif
-
-# IntelArduino.app path for ArduinoCC 1.6.5
-#
-GALILEO_1    = $(PACKAGES_PATH)/Intel
-
-ifneq ($(wildcard $(GALILEO_1)),)
-    GALILEO_APP     = $(GALILEO_1)
-    GALILEO_PATH    = $(GALILEO_APP)
-    GALILEO_BOARDS  = $(GALILEO_APP)/hardware/i586/$(INTEL_GALILEO_RELEASE)/boards.txt
-    EDISON_BOARDS   = $(GALILEO_APP)/hardware/i686/$(INTEL_EDISON_RELEASE)/boards.txt
-endif
-
-# RedBearLab.app path for ArduinoCC 1.6.5
-#
-REDBEARLAB_AVR_1    = $(PACKAGES_PATH)/RedBearLab
-REDBEARLAB_NRF_1    = $(PACKAGES_PATH)/RedBearLab
-
-ifneq ($(wildcard $(REDBEARLAB_AVR_1)/hardware/avr),)
-    REDBEARLAB_AVR_APP     = $(REDBEARLAB_AVR_1)
-    REDBEARLAB_AVR_PATH    = $(REDBEARLAB_AVR_APP)
-    REDBEARLAB_AVR_BOARDS  = $(REDBEARLAB_AVR_1)/hardware/avr/$(REDBEARLAB_AVR_RELEASE)/boards.txt
-endif
-
-ifneq ($(wildcard $(REDBEARLAB_NRF_1)/hardware/nRF51822),)
-    REDBEARLAB_NRF_APP     = $(REDBEARLAB_NRF_1)
-    REDBEARLAB_NRF_PATH    = $(REDBEARLAB_NRF_APP)
-    REDBEARLAB_NRF_BOARDS  = $(REDBEARLAB_NRF_1)/hardware/nRF51822/$(REDBEARLAB_NRF_RELEASE)/boards.txt
-endif
-
-# DigisparkArduino.app path for ArduinoCC 1.6.5
-#
-DIGISTUMP_AVR_1 = $(PACKAGES_PATH)/digistump
-DIGISTUMP_SAM_1 = $(PACKAGES_PATH)/digistump
-DIGISTUMP_DUO_1 = $(PACKAGES_PATH)/digistump
-
-ifneq ($(wildcard $(DIGISTUMP_AVR_1)),)
-    DIGISTUMP_AVR_APP    = $(DIGISTUMP_AVR_1)
-    DIGISTUMP_AVR_PATH   = $(DIGISTUMP_AVR_APP)
-    DIGISTUMP_AVR_BOARDS = $(DIGISTUMP_AVR_APP)/hardware/avr/$(DIGISTUMP_AVR_RELEASE)/boards.txt
-endif
-
-ifneq ($(wildcard $(DIGISTUMP_SAM_1)),)
-    DIGISTUMP_SAM_APP    = $(DIGISTUMP_SAM_1)
-    DIGISTUMP_SAM_PATH   = $(DIGISTUMP_SAM_APP)
-    DIGISTUMP_SAM_BOARDS = $(DIGISTUMP_SAM_APP)/hardware/sam/$(DIGISTUMP_SAM_RELEASE)/boards.txt
-endif
-
-ifneq ($(wildcard $(DIGISTUMP_OAK_1)/hardware/oak),)
-    DIGISTUMP_OAK_APP    = $(DIGISTUMP_OAK_1)
-    DIGISTUMP_OAK_PATH   = $(DIGISTUMP_OAK_APP)
-    DIGISTUMP_OAK_BOARDS = $(DIGISTUMP_OAK_APP)/hardware/oak/$(DIGISTUMP_OAK_RELEASE)/boards.txt
-endif
-
 # ESP8266 NodeMCU.app path for ArduinoCC 1.6.5
 #
 ESP8266_1 = $(PACKAGES_PATH)/esp8266
@@ -296,60 +215,7 @@ ifneq ($(wildcard $(ESP8266_1)),)
     ESP8266_BOARDS  = $(ESP8266_1)/hardware/esp8266/$(ESP8266_RELEASE)/boards.txt
 endif
 
-# LittleRobotFriends.app path for ArduinoCC 1.6.5
-#
-LITTLEROBOTFRIENDS_1 = $(PACKAGES_PATH)/littlerobotfriends
-
-ifneq ($(wildcard $(LITTLEROBOTFRIENDS_1)),)
-    LITTLEROBOTFRIENDS_APP  = $(ARDUINO_APP)
-    LITTLEROBOTFRIENDS_PATH = $(ARDUINO_APP)
-    LITTLEROBOTFRIENDS_BOARDS = $(LITTLEROBOTFRIENDS_1)/hardware/avr/$(LITTLEROBOTFRIENDS_AVR_RELEASE)/boards.txt
-endif
-
-# panStamp.app path for ArduinoCC 1.6.5
-#
-PANSTAMP_AVR_1    = $(PACKAGES_PATH)/panstamp_avr
-
-ifneq ($(wildcard $(PANSTAMP_AVR_1)),)
-    PANSTAMP_AVR_APP    = $(PANSTAMP_AVR_1)
-    PANSTAMP_AVR_PATH   = $(PANSTAMP_AVR_APP)
-    PANSTAMP_AVR_BOARDS = $(PANSTAMP_AVR_APP)/hardware/avr/$(PANSTAMP_AVR_RELEASE)/boards.txt
-endif
-
-PANSTAMP_NRG_1    = $(PACKAGES_PATH)/panstamp_nrg
-
-ifneq ($(wildcard $(PANSTAMP_NRG_1)),)
-    PANSTAMP_NRG_APP    = $(PANSTAMP_NRG_1)
-    PANSTAMP_NRG_PATH   = $(PANSTAMP_NRG_APP)
-    PANSTAMP_NRG_BOARDS = $(PANSTAMP_NRG_APP)/hardware/msp430/$(PANSTAMP_MSP_RELEASE)/boards.txt
-endif
-
 endif # end  ArduinoCC 1.6.5
-
-
-# Other boards
-# ----------------------------------
-#
-
-# Teensyduino.app path
-#
-TEENSY_0    = $(APPLICATIONS_PATH)/Teensyduino.app
-ifneq ($(wildcard $(TEENSY_0)),)
-    TEENSY_APP    = $(TEENSY_0)
-else
-    TEENSY_APP    = $(ARDUINO_APP)
-endif
-
-# Microduino.app path
-#
-MICRODUINO_0 = $(APPLICATIONS_PATH)/Microduino.app
-
-ifneq ($(wildcard $(MICRODUINO_0)),)
-    MICRODUINO_APP = $(MICRODUINO_0)
-else
-    MICRODUINO_APP = $(ARDUINO_APP)
-endif
-
 
 # Check at least one IDE installed
 #
