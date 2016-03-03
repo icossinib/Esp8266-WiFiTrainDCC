@@ -26,6 +26,9 @@
 
 // Include application, user and local libraries
 
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+#include <EEPROM.h>
 
 // Prototypes
 
