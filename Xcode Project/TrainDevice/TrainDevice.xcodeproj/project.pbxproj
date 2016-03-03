@@ -31,6 +31,8 @@
 		15CA0E781C88DEEE00DF59BC /* TemplateIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = TemplateIcon.icns; path = Utilities/TemplateIcon.icns; sourceTree = "<group>"; };
 		15CA0E791C88DEEE00DF59BC /* uploader_izmir.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = uploader_izmir.sh; path = Utilities/uploader_izmir.sh; sourceTree = "<group>"; };
 		15CA0E7A1C88DEEE00DF59BC /* TrainDevice.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = TrainDevice.ino; sourceTree = "<group>"; };
+		15CA0E8F1C89006600DF59BC /* Status.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Status.cpp; path = Sketchbook/Status.cpp; sourceTree = "<group>"; };
+		15CA0E901C89006600DF59BC /* Status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Status.h; path = Sketchbook/Status.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -68,6 +70,8 @@
 		15CA0DFF1C88DEEE00DF59BC /* Sketchbook */ = {
 			isa = PBXGroup;
 			children = (
+				15CA0E8F1C89006600DF59BC /* Status.cpp */,
+				15CA0E901C89006600DF59BC /* Status.h */,
 				15CA0E001C88DEEE00DF59BC /* Sketchbook.txt */,
 			);
 			name = Sketchbook;
@@ -434,6 +438,7 @@
 				15CA0E7F1C88DEEE00DF59BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15CA0E801C88DEEE00DF59BC /* Build configuration list for PBXLegacyTarget "Build" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +447,7 @@
 				15CA0E821C88DEEE00DF59BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15CA0E831C88DEEE00DF59BC /* Build configuration list for PBXLegacyTarget "Boards" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +456,7 @@
 				15CA0E851C88DEEE00DF59BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15CA0E861C88DEEE00DF59BC /* Build configuration list for PBXLegacyTarget "Serial" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +465,7 @@
 				15CA0E881C88DEEE00DF59BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15CA0E891C88DEEE00DF59BC /* Build configuration list for PBXLegacyTarget "Upload" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +474,7 @@
 				15CA0E8B1C88DEEE00DF59BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15CA0E8C1C88DEEE00DF59BC /* Build configuration list for PBXNativeTarget "Index" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +483,7 @@
 				15CA0E8E1C88DEEE00DF59BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
