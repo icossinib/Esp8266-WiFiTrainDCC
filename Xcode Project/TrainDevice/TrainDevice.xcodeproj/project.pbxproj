@@ -33,6 +33,8 @@
 		15CA0E7A1C88DEEE00DF59BC /* TrainDevice.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = TrainDevice.ino; sourceTree = "<group>"; };
 		15CA0E8F1C89006600DF59BC /* Status.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Status.cpp; path = Sketchbook/Status.cpp; sourceTree = "<group>"; };
 		15CA0E901C89006600DF59BC /* Status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Status.h; path = Sketchbook/Status.h; sourceTree = "<group>"; };
+		15CA0E911C89056400DF59BC /* EepromReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EepromReader.cpp; sourceTree = "<group>"; };
+		15CA0E921C89056400DF59BC /* EepromReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EepromReader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -70,6 +72,8 @@
 		15CA0DFF1C88DEEE00DF59BC /* Sketchbook */ = {
 			isa = PBXGroup;
 			children = (
+				15CA0E911C89056400DF59BC /* EepromReader.cpp */,
+				15CA0E921C89056400DF59BC /* EepromReader.h */,
 				15CA0E8F1C89006600DF59BC /* Status.cpp */,
 				15CA0E901C89006600DF59BC /* Status.h */,
 				15CA0E001C88DEEE00DF59BC /* Sketchbook.txt */,
