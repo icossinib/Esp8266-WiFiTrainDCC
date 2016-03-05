@@ -54,7 +54,13 @@ BUILD_FLASH_FREQ   = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.flash_freq)
     UPLOADER_PATH       = $(OTHER_TOOLS_PATH)/esptool/$(ESPTOOLS_RELEASE)
     UPLOADER_EXEC       = $(UPLOADER_PATH)/esptool
     UPLOADER_OPTS       = -vv -cd $(call PARSE_BOARD,$(BOARD_TAG),upload.resetmethod)
+ifndef UPLOAD_SPEED_OPT
+#    @echo "Using default speed"
     UPLOADER_OPTS      += -cb $(call PARSE_BOARD,$(BOARD_TAG),upload.speed)
+else
+#    @echo "Using custom speed"
+    UPLOADER_OPTS      += -cb $(UPLOAD_SPEED_OPT)
+endif
 #endif
 
 APP_TOOLS_PATH      := $(TOOL_CHAIN_PATH)/bin
