@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>All Not Serial.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>All.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,6 +42,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>153324491C8B04EF00E2AE95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>15CA0DF01C88DEEE00DF59BC</key>
 		<dict>
 			<key>primary</key>

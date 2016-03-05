@@ -862,6 +862,7 @@ include $(MAKEFILE_PATH)/About.mk
 #
 all: 		info message_all clean compile reset raw_upload serial end_all prepare
 
+allns:      info message_allns clean compile reset raw_upload end_all prepare
 
 build: 		info message_build clean compile end_build prepare
 
@@ -1246,6 +1247,9 @@ boards:
 
 message_all:
 		@echo "==== All ===="
+
+message_allns:
+        @echo "==== All without serial after upload ====="
 
 message_build:
 		@echo "==== Build ===="

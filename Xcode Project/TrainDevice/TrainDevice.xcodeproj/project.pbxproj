@@ -118,6 +118,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
+		153324491C8B04EF00E2AE95 /* All not Serial */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "allns -C \"$(PROJECT)\"";
+			buildConfigurationList = 1533244A1C8B04EF00E2AE95 /* Build configuration list for PBXLegacyTarget "All not Serial" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "All not Serial";
+			passBuildSettingsInEnvironment = 1;
+			productName = All;
+		};
 		15CA0DF01C88DEEE00DF59BC /* All */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "all -C \"$(PROJECT)\"";
@@ -243,6 +257,7 @@
 			projectRoot = "";
 			targets = (
 				15CA0DF01C88DEEE00DF59BC /* All */,
+				153324491C8B04EF00E2AE95 /* All not Serial */,
 				15CA0DF11C88DEEE00DF59BC /* Build */,
 				15CA0DF21C88DEEE00DF59BC /* Boards */,
 				15CA0DF31C88DEEE00DF59BC /* Serial */,
@@ -265,6 +280,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		1533244B1C8B04EF00E2AE95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1533244C1C8B04EF00E2AE95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		15CA0E7B1C88DEEE00DF59BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15CA0E231C88DEEE00DF59BC /* ESP8266.xcconfig */;
@@ -426,6 +455,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1533244A1C8B04EF00E2AE95 /* Build configuration list for PBXLegacyTarget "All not Serial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1533244B1C8B04EF00E2AE95 /* Debug */,
+				1533244C1C8B04EF00E2AE95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15CA0DEF1C88DEED00DF59BC /* Build configuration list for PBXProject "TrainDevice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
