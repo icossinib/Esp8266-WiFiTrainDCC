@@ -38,6 +38,8 @@ public:
     int getStatus();
     void setPort(int newPort);
     int getPort();
+    IPAddress getIp();
+    String readPacket();
 };
 
 #endif

@@ -30,6 +30,7 @@ int WifiManager::getStatus() {
             return status->getStatus();
         } else {
             status->setStatus(Status::WIFI_CONNECTED);
+            ip = WiFi.localIP();
             return Status::WIFI_CONNECTED;
         }
     }
@@ -50,4 +51,24 @@ void WifiManager::setPort(int newPort){
 
 int WifiManager::getPort(){
     return WifiManager::portNumber;
+}
+
+IPAddress WifiManager::getIp() {
+    return ip;
+}
+
+String WifiManager::readPacket() {
+    char packetBuffer[255];
+    int packetSize = port.parsePacket();
+    if (packetSize) {
+        int dataLength = port.read(packetBuffer,255);
+        if (dataLength > 0) {
+            packetBuffer[dataLength] = 0;
+        }
+        String toReturn(packetBuffer);
+        return toReturn;
+    }
+    else {
+        return "";
+    }
 }
