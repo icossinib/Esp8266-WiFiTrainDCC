@@ -1,9 +1,8 @@
 #include "EepromReader.h"
-#include "Arduino.h"
 #include <EEPROM.h>
 
 EepromReader::EepromReader() {
-    startEeprom( EEPROM_START);
+    EepromReader::startEeprom( EepromReader::EEPROM_START);
 }
 
 void EepromReader::startEeprom(int address) {
@@ -11,25 +10,45 @@ void EepromReader::startEeprom(int address) {
     delay(10);
 }
 
-void EepromReader::writeData(const char bssid[], const char password[], const char ip[]) {
+void EepromReader::writeData(String bssid, String password, String ip) {
     write(bssid,EepromReader::BSSID_MAX_LENGTH);
 }
 
-void EepromReader::write(const char data[], const short dataMaxLength) {
-    for (int i = 0; i < strlen(data) && i < dataMaxLength; i++) {
+void EepromReader::write(String data, const short dataMaxLength) {
+    int i = 0;
+    for (i = 0; i < data.length() && i < dataMaxLength; i++) {
         EEPROM.write(i,data[i]);
+        Serial.print(data[i]);
+        Serial.print(" ");
+        Serial.println(int(data[i]));
     }
+    Serial.print("Data writen");
+    Serial.println(i);
     EEPROM.commit();
+    delay(10);
 }
 
-const char *EepromReader::read(){
+String EepromReader::read(){
+    EepromReader::startEeprom(EepromReader::EEPROM_START);
     char bssid [EepromReader::BSSID_MAX_LENGTH] = "Not read";
-    for (int i = 0; i < EepromReader::BSSID_MAX_LENGTH && bssid[i] != '\0'; ++i) {
+    int i = 0;
+    for (i = 0; i < EepromReader::BSSID_MAX_LENGTH && bssid[i] != '\0'; ++i) {
         bssid[i] = char(EEPROM.read(i));
+        Serial.print(bssid[i]);
+        Serial.print("-");
+        Serial.println(int(EEPROM.read(i)));
+        Serial.print(int(bssid[i]));
+        Serial.print(" ");
+        Serial.println(int(EEPROM.read(i)));
+        
     }
-    return bssid;
+    Serial.println("data read: ");
+    Serial.println(i);
+    Serial.println(bssid);
+    String a(bssid);
+    return a;
 }
 
-const char *EepromReader::getBssid(){
+String EepromReader::getBssid(){
     return EepromReader::read();
 }

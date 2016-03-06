@@ -26,9 +26,9 @@
 
 // Include application, user and local libraries
 
-#include <ESP8266WiFi.h>
+/*#include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
-#include "Status.h"
+#include "Status.h"*/
 #include "EepromReader.h"
 // Prototypes
 
@@ -122,13 +122,29 @@ void loop() {
 */
 
 EepromReader eepromReader = EepromReader();
+/*
+WiFiUDP port;
+IPAddress ip;
+unsigned int localPort = 9999;
 
+void connectWifi() {
+    WiFi.begin("Black", "navara77");
+    port.begin(localPort);
+    status->setStatus(2);
+    while (WiFi.status() != WL_CONNECTED) {
+        Serial.println("Connecting to wifi");
+        status->showStatus();
+        delay(700);
+    }
+    status->setStatus(3);
+    status->showStatus();
+    ip = WiFi.localIP();
+    Serial.println(ip);
+    Serial.println("Connected");
+}
+*/
 void setup() {
-    Serial.begin(9600);
-    Serial.println("system started");
-    Serial.println(eepromReader.getBssid());
-    Serial.println("end of read");
-    delay(1000);
+
 }
 
 void loop() {

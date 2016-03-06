@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15381CAE1C8B832B0014E922 /* WifiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15381CAC1C8B832B0014E922 /* WifiManager.cpp */; };
 		15CA0DFB1C88DEEE00DF59BC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15CA0DFA1C88DEEE00DF59BC /* main.cpp */; };
 		15CA0DFD1C88DEEE00DF59BC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 15CA0DFC1C88DEEE00DF59BC /* Makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15381CAC1C8B832B0014E922 /* WifiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WifiManager.cpp; path = Sketchbook/WifiManager.cpp; sourceTree = "<group>"; };
+		15381CAD1C8B832B0014E922 /* WifiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WifiManager.h; path = Sketchbook/WifiManager.h; sourceTree = "<group>"; };
 		15CA0DF71C88DEEE00DF59BC /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
 		15CA0DFA1C88DEEE00DF59BC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		15CA0DFC1C88DEEE00DF59BC /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				15CA0E8F1C89006600DF59BC /* Status.cpp */,
 				15CA0E901C89006600DF59BC /* Status.h */,
 				15CA0E001C88DEEE00DF59BC /* Sketchbook.txt */,
+				15381CAC1C8B832B0014E922 /* WifiManager.cpp */,
+				15381CAD1C8B832B0014E922 /* WifiManager.h */,
 			);
 			name = Sketchbook;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15381CAE1C8B832B0014E922 /* WifiManager.cpp in Sources */,
 				15CA0DFD1C88DEEE00DF59BC /* Makefile in Sources */,
 				15CA0DFB1C88DEEE00DF59BC /* main.cpp in Sources */,
 			);
