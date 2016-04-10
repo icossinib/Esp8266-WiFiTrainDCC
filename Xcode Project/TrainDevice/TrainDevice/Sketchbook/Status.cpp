@@ -7,6 +7,7 @@ Status::Status(int statusValue){
     ledPeriod = 175;
     currentStatus = statusValue;
     pinMode(ledStatus,OUTPUT);
+    showStatus();
 }
 
 Status::Status(int statusValue, int statusLed){
@@ -14,6 +15,7 @@ Status::Status(int statusValue, int statusLed){
     ledPeriod = 175;
     currentStatus = statusValue;
     pinMode(ledStatus,OUTPUT);
+    showStatus();
 }
 
 void Status::showStatus() {
@@ -24,6 +26,7 @@ void Status::showStatus() {
         delay(ledPeriod);
         i++;
     }
+    delay(ledPeriod);
 }
 
 void Status::blinkLed() {
@@ -38,6 +41,5 @@ int Status::getStatus() {
 
 void Status::setStatus(int status){
     currentStatus = status;
-    showStatus();
 }
 

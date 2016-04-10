@@ -30,6 +30,8 @@
 #include <WiFiUdp.h>
 #include "Status.h"*/
 #include "EepromReader.h"
+#include "WifiManager.h"
+#include "Parser.h"
 // Prototypes
 
 
@@ -143,10 +145,49 @@ void connectWifi() {
     Serial.println("Connected");
 }
 */
-void setup() {
 
+WifiManager wifimanager = WifiManager();
+
+void setup() {
+    wifimanager.connect("ID","pocholeremito");
+    Serial.begin(9600);
+    Serial.println("connection started");
+    while (wifimanager.getStatus() != 3){
+        Serial.println("Connecting");
+        delay(1000);
+    }
+    Serial.println("Connected");
+    Serial.print("Ip: ");
+    Serial.println(wifimanager.getIp());
 }
 
-void loop() {
-    ;
+String dataRead = "";
+Parser parser = Parser();
+
+void loop()  {
+    if (wifimanager.getStatus() == 3)
+    {
+        dataRead = wifimanager.readPacket();
+        if (dataRead.length() != 0){
+            Serial.print("data: ");
+            std::vector<std::vector<char * >> result(parser.parse(dataRead));
+            
+            std::vector<char*> vector1 = (std::vector<char *>)result[0];
+            
+            char * value = vector1[0];
+            
+            char * value2 = vector1[1];
+            
+            std::vector<char *> vector2 = (std::vector<char *>) result[1];
+            
+            char* value3 = vector1[0];
+            
+            char * value4 = vector1[1];
+
+            Serial.println(value);
+            Serial.println(value2);
+            Serial.println(value3);
+            Serial.println(value4);
+        }
+    }
 }

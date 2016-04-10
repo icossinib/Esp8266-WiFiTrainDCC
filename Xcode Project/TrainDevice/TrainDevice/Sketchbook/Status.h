@@ -1,6 +1,6 @@
 class Status {
 private:
-    static const int STATUS_LED = 13;
+    static const int STATUS_LED = 2;
     int currentStatus;
     int ledStatus;
     int ledPeriod;

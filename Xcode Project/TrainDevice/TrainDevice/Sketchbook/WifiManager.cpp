@@ -25,24 +25,26 @@ WifiManager::WifiManager() {
 }
 
 int WifiManager::getStatus() {
+    /*
     if (status->getStatus() == Status::WIFI_CONNECTING) {
-        if (WiFi.status() != WL_CONNECTED){
-            return status->getStatus();
-        } else {
+        if (WiFi.status() == WL_CONNECTED){
             status->setStatus(Status::WIFI_CONNECTED);
             ip = WiFi.localIP();
-            return Status::WIFI_CONNECTED;
         }
+    } else {
+        status->setStatus(WiFi.status());
+    }*/
+    status->setStatus(WiFi.status());
+    if (WiFi.status() != WL_CONNECTED){
+        status->showStatus();
     }
-    else {
-        return status->getStatus();
-    }
+    return status->getStatus();
 }
 
 void WifiManager::connect(String bssid, String password){
     WiFi.begin(bssid.c_str(),password.c_str());
     WifiManager::port.begin(WifiManager::portNumber);
-    status->setStatus(1);
+    status->setStatus(Status::WIFI_CONNECTING);
 }
 
 void WifiManager::setPort(int newPort){
@@ -54,14 +56,17 @@ int WifiManager::getPort(){
 }
 
 IPAddress WifiManager::getIp() {
+    if (WiFi.status() == WL_CONNECTED) {
+        ip = WiFi.localIP();
+    }
     return ip;
 }
 
 String WifiManager::readPacket() {
-    char packetBuffer[255];
+    char packetBuffer[512];
     int packetSize = port.parsePacket();
     if (packetSize) {
-        int dataLength = port.read(packetBuffer,255);
+        int dataLength = port.read(packetBuffer,512);
         if (dataLength > 0) {
             packetBuffer[dataLength] = 0;
         }
