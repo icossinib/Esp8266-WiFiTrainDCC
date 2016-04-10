@@ -45,11 +45,15 @@ SEARCH_FOR  = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
 BUILD_FLASH_SIZE   = $(firstword $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.flash_size))
 BUILD_FLASH_FREQ   = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.flash_freq)
 
-#ifeq ($(UPLOADER),esptool.py)
-#    UPLOADER_PATH       = $(APPLICATION_PATH)/hardware/tools/esp8266
-#    UPLOADER_EXEC       = $(UPLOADER_PATH)/esptool.py
-#    UPLOADER_OPTS       = --baud $(call PARSE_BOARD,$(BOARD_TAG),upload.speed)
-#else
+ifeq ($(UPLOADER),esptool.py)
+    UPLOADER_PATH       = $(APPLICATION_PATH)/hardware/tools/esp8266/esptool
+    UPLOADER_EXEC       = python $(UPLOADER_PATH)/esptool.py
+ifndef UPLOAD_SPEED_OPT
+    UPLOADER_OPTS       = --baud $(call PARSE_BOARD,$(BOARD_TAG),upload.speed)
+else
+    UPLOADER_OPTS       = --baud $(UPLOAD_SPEED_OPT)
+endif
+else
     UPLOADER            = esptool
     UPLOADER_PATH       = $(OTHER_TOOLS_PATH)/esptool/$(ESPTOOLS_RELEASE)
     UPLOADER_EXEC       = $(UPLOADER_PATH)/esptool
@@ -61,7 +65,7 @@ else
 #    @echo "Using custom speed"
     UPLOADER_OPTS      += -cb $(UPLOAD_SPEED_OPT)
 endif
-#endif
+endif
 
 APP_TOOLS_PATH      := $(TOOL_CHAIN_PATH)/bin
 CORE_LIB_PATH       := $(HARDWARE_PATH)/cores/esp8266
@@ -241,5 +245,7 @@ TARGET_HEXBIN = $(TARGET_BIN2)
 #
 COMMAND_LINK    = $(CC) $(LDFLAGS) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(TARGET_A) $(L_FLAGS) -Wl,--end-group -LBuilds
 
-COMMAND_UPLOAD  = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -cp $(USED_SERIAL_PORT) -ca 0x$(ADDRESS_BIN1) -cf Builds/$(TARGET)_$(ADDRESS_BIN1).bin
+#COMMAND_UPLOAD  = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -cp $(USED_SERIAL_PORT) -ca 0x$(ADDRESS_BIN1) -cf Builds/$(TARGET)_$(ADDRESS_BIN1).bin
+
+COMMAND_UPLOAD  = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -p $(USED_SERIAL_PORT) write_flash 0x$(ADDRESS_BIN1)  Builds/$(TARGET)_$(ADDRESS_BIN1).bin
 

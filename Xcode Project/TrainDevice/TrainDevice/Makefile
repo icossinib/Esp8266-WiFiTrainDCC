@@ -64,7 +64,13 @@ BOARD_PORT = /dev/cu.usbserial-A800BWX1
 # UPLOAD_SPEED_OPT for the code upload, 115200 by default
 # Uncomment and specify another speed
 #
-UPLOAD_SPEED_OPT = 115200
+UPLOAD_SPEED_OPT = 921600
+
+# UPLOADER_PYTHON set this value to use python uploader instead
+# Uncomment 
+#
+UPLOADER = esptool.py
+
 
 # Miscellaneous
 # ----------------------------------
