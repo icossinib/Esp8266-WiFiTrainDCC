@@ -22,16 +22,23 @@
 #define Parser_cpp
 
 #include "Arduino.h"
+#include "Command.h"
 #include <vector>
 
 
 class Parser {
 private:
-    String message;
-    std::vector<char *> split(char str[], char delimiters[]);
+    int currentMessage;
+    int lastMessage;
+    std::vector<String> commands;
+    char * stringToCharArray(String str);
+    std::vector<String> split(char str[], char delimiters[]);
+    String trimCommand(String & str);
 public:
     Parser();
-    std::vector<std::vector<char *>> parse(String message);
+    void parseMessage(String message);
+    Command * getNextCommand();
+    int getMessagesCount();
 };
 
 #endif

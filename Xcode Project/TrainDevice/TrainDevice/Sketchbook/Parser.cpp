@@ -26,49 +26,80 @@
 Parser::Parser() {
 }
 
-std::vector<char *> Parser::split(char str[], char delimiters[]){
-    std::vector<char *> internal;
+std::vector<String> Parser::split(char str[], char delimiters[]){
+    std::vector<String> internal;
     char * part;
     part = strtok(str, delimiters);
     int i = 0;
     while (part != NULL) {
-        internal.push_back(part);
-        //Serial.print("Debug: ");
-        //Serial.println(part);
+        String pushed(part);
+        pushed.trim();
+        internal.push_back(pushed);
+        Serial.print("Parte: ");
+        Serial.println(pushed);
         part = strtok(NULL, delimiters);
         i++;
     }
     return internal;
 }   
 
-std::vector<std::vector<char *>>  Parser::parse(String message){
-    Serial.println("Received string: ");
+void  Parser::parseMessage(String message){
+    Serial.print("Received:");
     Serial.println(message);
-    std::vector<char *> internal;
-    char command_delimiters[] = {','};
-    char values_delimiters[] = ":";
-    char commands_string[message.length()+1];
+    char command_delimiters[] = ",";
+    char * commandsArray = stringToCharArray(message);
+    Serial.print("procesed:");
+    Serial.println(commandsArray);
+    commands = split(commandsArray,command_delimiters);
+    Serial.print("AfterSplit:");
+    Serial.println(commands.front());
+    currentMessage = 0;
     
-    message.toCharArray(commands_string, message.length());
-    Serial.println("charArray converted: ");
-    Serial.println(commands_string);
-    
-    internal = split(commands_string,command_delimiters);
-    Serial.print("Debug2: ");
-    Serial.println(internal[0]);
-    
-    std::vector<std::vector<char *>> toReturn;
-    for (int i = 0; i< internal.size(); i++) {
-        std::vector<char *> command = split(internal.at(i),values_delimiters);
-        for (int j = 0; j < command.size(); j++) {
-            Serial.print("Commands:");
-            Serial.print(j);
-            Serial.print(":");
-            Serial.println(command[j]);
-        }
-        Serial.println(" ---- ");
-        toReturn.push_back(command);
-    }
-    return toReturn;
+    lastMessage = commands.size();
 }
 
+Command * Parser::getNextCommand(){
+    char values_delimiters[] = ":";
+    if (currentMessage < lastMessage) {
+        char * next_command = stringToCharArray(trimCommand(commands[currentMessage]));
+        Serial.print("Command ");
+        Serial.println(next_command);
+        Serial.print("Va command de nuevo ");
+        Serial.println(trimCommand(commands[currentMessage]));
+        Serial.println(commands[currentMessage]);
+        std::vector<String> command_parts = split(next_command,values_delimiters);
+
+        Serial.print("getnext-split: ");
+        Serial.println(command_parts.front());
+        Serial.println(command_parts.back());
+        Command * command = new Command(command_parts.front(),command_parts.back());
+        
+        currentMessage++;
+        return command;
+    } else {
+        return nullptr;
+    }
+    
+}
+
+char * Parser::stringToCharArray(String str){
+    char * newCharArray = new char[str.length() +1 ];
+    str.toCharArray(newCharArray,str.length() + 1);
+    return newCharArray;
+}
+
+int Parser::getMessagesCount() {
+    return lastMessage;
+}
+
+String Parser::trimCommand(String &str) {
+    str.trim();
+    if (str.endsWith("}") && str.startsWith("{")){
+        str.setCharAt(0, ' ');
+        str.setCharAt(str.length()-1, ' ');
+        str.trim();
+        return str;
+    } else {
+        return "";
+    }
+}

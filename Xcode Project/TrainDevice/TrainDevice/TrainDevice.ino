@@ -149,9 +149,9 @@ void connectWifi() {
 WifiManager wifimanager = WifiManager();
 
 void setup() {
-    wifimanager.connect("ID","pocholeremito");
+    wifimanager.connect("Black","navara77");
     Serial.begin(9600);
-    Serial.println("connection started");
+    Serial.println("Connection started");
     while (wifimanager.getStatus() != 3){
         Serial.println("Connecting");
         delay(1000);
@@ -170,24 +170,13 @@ void loop()  {
         dataRead = wifimanager.readPacket();
         if (dataRead.length() != 0){
             Serial.print("data: ");
-            std::vector<std::vector<char * >> result(parser.parse(dataRead));
+            parser.parseMessage(dataRead);
+            Command * currentCommand = parser.getNextCommand();
+            Serial.print("Command: ");
+            Serial.println(currentCommand->getCommand());
+            Serial.print("Value: ");
+            Serial.println(currentCommand->getValue());
             
-            std::vector<char*> vector1 = (std::vector<char *>)result[0];
-            
-            char * value = vector1[0];
-            
-            char * value2 = vector1[1];
-            
-            std::vector<char *> vector2 = (std::vector<char *>) result[1];
-            
-            char* value3 = vector1[0];
-            
-            char * value4 = vector1[1];
-
-            Serial.println(value);
-            Serial.println(value2);
-            Serial.println(value3);
-            Serial.println(value4);
         }
     }
 }

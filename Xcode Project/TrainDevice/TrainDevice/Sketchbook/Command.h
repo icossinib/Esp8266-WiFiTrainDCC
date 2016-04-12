@@ -20,8 +20,8 @@
 
 
 // Core library for code-sense - IDE-based
-#if defined(MBED) // mbed specific
-#   include "mbed.h"
+#if defined(ESP8266) // mbed specific
+#   include "Arduino.h"
 #else // error
 #   error Platform not defined
 #endif // end IDE
@@ -29,6 +29,15 @@
 #ifndef Command_cpp
 #define Command_cpp
 
-
+class Command {
+private:
+    String command;
+    String value;
+    String trimCommand(String str);
+public:
+    Command (String command_char, String value_char);
+    String getCommand();
+    String getValue();
+};
 
 #endif
