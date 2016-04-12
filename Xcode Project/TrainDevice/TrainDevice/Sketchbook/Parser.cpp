@@ -35,8 +35,6 @@ std::vector<String> Parser::split(char str[], char delimiters[]){
         String pushed(part);
         pushed.trim();
         internal.push_back(pushed);
-        Serial.print("Parte: ");
-        Serial.println(pushed);
         part = strtok(NULL, delimiters);
         i++;
     }
@@ -44,15 +42,11 @@ std::vector<String> Parser::split(char str[], char delimiters[]){
 }   
 
 void  Parser::parseMessage(String message){
-    Serial.print("Received:");
-    Serial.println(message);
     char command_delimiters[] = ",";
     char * commandsArray = stringToCharArray(message);
-    Serial.print("procesed:");
-    Serial.println(commandsArray);
+    
     commands = split(commandsArray,command_delimiters);
-    Serial.print("AfterSplit:");
-    Serial.println(commands.front());
+    
     currentMessage = 0;
     
     lastMessage = commands.size();
@@ -62,19 +56,13 @@ Command * Parser::getNextCommand(){
     char values_delimiters[] = ":";
     if (currentMessage < lastMessage) {
         char * next_command = stringToCharArray(trimCommand(commands[currentMessage]));
-        Serial.print("Command ");
-        Serial.println(next_command);
-        Serial.print("Va command de nuevo ");
-        Serial.println(trimCommand(commands[currentMessage]));
-        Serial.println(commands[currentMessage]);
+        
         std::vector<String> command_parts = split(next_command,values_delimiters);
 
-        Serial.print("getnext-split: ");
-        Serial.println(command_parts.front());
-        Serial.println(command_parts.back());
         Command * command = new Command(command_parts.front(),command_parts.back());
         
         currentMessage++;
+        
         return command;
     } else {
         return nullptr;
