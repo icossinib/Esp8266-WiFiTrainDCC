@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		15381CAE1C8B832B0014E922 /* WifiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15381CAC1C8B832B0014E922 /* WifiManager.cpp */; };
 		1571D01E1C94F54B009107E2 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1571D01C1C94F54B009107E2 /* Parser.cpp */; };
+		157CA5D81CBABE0D003914C8 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 157CA5D61CBABE0D003914C8 /* Command.cpp */; };
 		15CA0DFB1C88DEEE00DF59BC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15CA0DFA1C88DEEE00DF59BC /* main.cpp */; };
 		15CA0DFD1C88DEEE00DF59BC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 15CA0DFC1C88DEEE00DF59BC /* Makefile */; };
 /* End PBXBuildFile section */
@@ -18,6 +19,8 @@
 		15381CAD1C8B832B0014E922 /* WifiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WifiManager.h; path = Sketchbook/WifiManager.h; sourceTree = "<group>"; };
 		1571D01C1C94F54B009107E2 /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Parser.cpp; path = Sketchbook/Parser.cpp; sourceTree = "<group>"; };
 		1571D01D1C94F54B009107E2 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parser.h; path = Sketchbook/Parser.h; sourceTree = "<group>"; };
+		157CA5D61CBABE0D003914C8 /* Command.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Command.cpp; path = Sketchbook/Command.cpp; sourceTree = "<group>"; };
+		157CA5D71CBABE0D003914C8 /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Command.h; path = Sketchbook/Command.h; sourceTree = "<group>"; };
 		15CA0DF71C88DEEE00DF59BC /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
 		15CA0DFA1C88DEEE00DF59BC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		15CA0DFC1C88DEEE00DF59BC /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				15381CAD1C8B832B0014E922 /* WifiManager.h */,
 				1571D01C1C94F54B009107E2 /* Parser.cpp */,
 				1571D01D1C94F54B009107E2 /* Parser.h */,
+				157CA5D61CBABE0D003914C8 /* Command.cpp */,
+				157CA5D71CBABE0D003914C8 /* Command.h */,
 			);
 			name = Sketchbook;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				15381CAE1C8B832B0014E922 /* WifiManager.cpp in Sources */,
 				15CA0DFD1C88DEEE00DF59BC /* Makefile in Sources */,
 				15CA0DFB1C88DEEE00DF59BC /* main.cpp in Sources */,
+				157CA5D81CBABE0D003914C8 /* Command.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
