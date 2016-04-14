@@ -149,7 +149,7 @@ void connectWifi() {
 WifiManager wifimanager = WifiManager();
 
 void setup() {
-    wifimanager.connect("Black","navara77");
+    wifimanager.connect("OPENWifi","password");
     Serial.begin(9600);
     Serial.println("Connection started");
     while (wifimanager.getStatus() != 3){
@@ -172,11 +172,10 @@ void loop()  {
             Serial.print("data: ");
             parser.parseMessage(dataRead);
             Command * currentCommand = parser.getNextCommand();
-            Serial.print("Command: ");
-            Serial.println(currentCommand->getCommand());
-            Serial.print("Value: ");
-            Serial.println(currentCommand->getValue());
-            
+            while (currentCommand != nullptr) {
+                Serial.println(currentCommand->getValue());
+                currentCommand = parser.getNextCommand();
+            }
         }
     }
 }
